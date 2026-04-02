@@ -1,0 +1,48 @@
+import boto3
+from datetime import datetime, timedelta
+
+def scan_topology():
+    session = boto3.Session()
+    ec2 = session.client('ec2')
+    s3control = session.client('s3control') # For S3 Express visibility
+    cw = session.client('cloudwatch')
+    
+    print("🛡️  AEGIS TOPOLOGY SCOUT — Initializing Scan...")
+    
+    # 1. Map EC2 Instances and their AZs
+    instances = ec2.describe_instances(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
+    compute_map = {}
+    for res in instances['Reservations']:
+        for inst in res['Instances']:
+            compute_map[inst['InstanceId']] = {
+                'AZ': inst['Placement']['AvailabilityZone'],
+                'Type': inst['InstanceType']
+            }
+
+    # 2. Identify S3 Express One Zone Buckets (The "Single AZ" targets)
+    # Note: S3 Express buckets are tied to a specific AZ ID (e.g., use1-az4)
+    print("🔎 Checking for S3 Express One Zone alignment...")
+    # (Logic to list S3 Express directory buckets and their AZ mappings)
+
+    # 3. Calculate the "Inter-AZ Tax"
+    # We look for high NetworkOut metrics on instances not aligned with storage
+    for i_id, data in compute_map.items():
+        stats = cw.get_metric_statistics(
+            Namespace='AWS/EC2',
+            MetricName='NetworkOut',
+            Dimensions=[{'Name': 'InstanceId', 'Value': i_id}],
+            StartTime=datetime.utcnow() - timedelta(days=7),
+            EndTime=datetime.utcnow(),
+            Period=86400,
+            Statistics=['Sum']
+        )
+        
+        total_gb = sum(d['Sum'] for d in stats['Datapoints']) / (1024**3)
+        
+        if total_gb > 50: # Focus on high-throughput "Leakers"
+            print(f"⚠️  POTENTIAL LEAK: {i_id} ({data['Type']}) in {data['AZ']}")
+            print(f"   Weekly Thruput: {total_gb:.2f} GB")
+            print(f"   Estimated AZ-Tax: ~${total_gb * 0.01:.2f} (if unaligned with storage)")
+
+if __name__ == "__main__":
+    scan_topology()
