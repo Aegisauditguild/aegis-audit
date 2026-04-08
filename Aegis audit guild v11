@@ -1,7 +1,0 @@
-import os
-
-HTML_TEMPLATE = "This is a template with monthly waste: {}, annual waste: {}, audit fee: {}, home equivalency: {}" 
-
-def generate_report(monthly_waste, annual_waste, audit_fee, home_equivalency):
-    report_content = HTML_TEMPLATE.format(monthly_waste, annual_waste, audit_fee, home_equivalency)
-    # write to file (implementation not shown)
