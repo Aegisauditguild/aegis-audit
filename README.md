@@ -14,7 +14,7 @@ Every idle server, every forgotten storage bucket, and every piece of "zombie da
 Cloud waste is silent money leaking from your business. We find orphaned resources, over-provisioned instances, unattached volumes, and under-used services so you can reinvest that capital where it matters most.
 
 3. Carbon Reduction (The Shield)
-Data centres are forecast to consume up to 10% of global electricity by 2030! Through clear, actionable insights, we help you meaningfully lower your carbon footprint and make measurable progress toward your Net Zero commitments.
+Data centres are forecast to consume up to 10% of global electricity by 2030! Through clear, actionable insights, we help you move the needle on your carbon footprint and give you measurable progress toward your Net Zero commitments.
 
 🔍 What We Actually Do
 
