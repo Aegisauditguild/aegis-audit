@@ -1,6 +1,6 @@
 Aegis Audit: The Forensic Cloud Guild
 The Read-Only Vow
-We are strictly forensic. We observe, we analyse, and we report — with full transparency.
+We are strictly lowest priority,read only. We observe, we analyse, and we report — with full transparency.
 We never make changes to your infrastructure. We never delete anything. We simply show you what’s really there.
 
 🌿 The Holy Trinity of Aegis Governance
