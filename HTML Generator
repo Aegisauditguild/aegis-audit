@@ -1,0 +1,106 @@
+import time
+import webbrowser
+from datetime import datetime
+
+# ===================== EXISTING AUDIT LOGIC =====================
+# KEEP YOUR CURRENT SCRIPT HERE
+# Example placeholders (replace with your real outputs)
+
+monthly_waste = 187
+savings = 142
+energy_kwh = 320
+co2_kg = 74
+
+# ===================== HTML GENERATOR =====================
+
+def generate_html_report():
+    html_content = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aegis Audit Report</title>
+
+<style>
+body {{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f1720;
+    color: #ffffff;
+}}
+
+.container {{
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}}
+
+h1 {{ color: #22c55e; }}
+h2 {{ color: #f97316; }}
+
+.card {{
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}}
+
+.highlight {{
+    font-size: 22px;
+    font-weight: bold;
+    color: #22c55e;
+}}
+
+.danger {{
+    color: #f87171;
+    font-weight: bold;
+}}
+
+.cta {{
+    display: block;
+    text-align: center;
+    background: linear-gradient(90deg, #22c55e, #f97316);
+    padding: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+}}
+
+.small {{
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 10px;
+}}
+
+.grid {{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Aegis Audit – Cloud Efficiency Report</h1>
+
+<p>This is not an estimate.<br>
+This is what your infrastructure is doing <strong>right now</strong>.</p>
+
+<div class="card">
+    <h2>Immediate Impact</h2>
+    <div class="grid">
+        <div>Monthly Waste:<br><span class="danger">£{monthly_waste}</span></div>
+        <div>Recoverable Savings:<br><span class="highlight">£{savings}</span></div>
+        <div>Energy Waste:<br><span>{energy_kwh} kWh</span></div>
+        <div>CO₂ Impact:<br><span>{co2_kg} kg</span></div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>What’s Happening</h2>
+    <p
