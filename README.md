@@ -8,7 +8,7 @@ Aegis Audit was founded on a simple belief: digital efficiency is a necessity.
 We operate under three equal and interconnected pillars
 
 1. Rewilding (The Heart)
-Every idle server, every forgotten storage bucket, and every piece of "zombie data" consumes real electricity 24/7. By identifying this hidden waste, we help reduce the energy burden on the grid — and we channel a landscape changing 80% portion of our capped £250 charge into genuine rewilding projects on the ground with our Mossy Earth Partnership. We are a low overhead concern so we are really trying to take advantage of that and make a real impact.
+Every idle server, every forgotten storage bucket, and every piece of "zombie data" consumes real electricity 24/7. By identifying this hidden waste, we help reduce the energy burden on the grid — and we urge you to make a telling donation into genuine rewilding projects on the ground with our Mossy Earth Partnership. We are a low overhead concern so we are really trying to take advantage of that and make a real impact by providing these scans for FREE.
 
 2. Cost Saving (The Engine)
 Cloud waste is silent money leaking from your business. We find orphaned resources, over-provisioned instances, unattached volumes, and under-used services so you can reinvest that capital where it matters most.
